@@ -9,15 +9,15 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
-@Access(AccessType.PROPERTY)
-
 public class Ticket extends BaseModel{
- /*   @ManyToOne
+   @ManyToOne(fetch = FetchType.LAZY)
+   @JoinColumn(name = "show_id")
     private Show show;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
     private User user;
-*/
+
     private Double totalAmount;
 
     @Enumerated(EnumType.ORDINAL)
@@ -25,10 +25,10 @@ public class Ticket extends BaseModel{
 
     private Date timeOfBooking;
 
-  /*  @OneToMany(mappedBy = "ticket")
+    @OneToMany(mappedBy = "ticket")
     private List<Payment>paymentList;
 
-    @ManyToMany
+    @OneToMany(mappedBy = "ticket")
     private List<ShowSeat>showSeatList;
-*/
+
 }

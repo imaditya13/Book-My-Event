@@ -8,18 +8,18 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-@Access(AccessType.PROPERTY)
 public class Seat extends BaseModel{
-    private String name;
+     private String name;
+
    @Column(name = "seat_row")
     private Integer row;
 
     @Column(name = "seat_column")
     private Integer col;
 
-    /*@ManyToOne(cascade = CascadeType.MERGE,fetch = FetchType.LAZY)
+    @ManyToOne(cascade = CascadeType.MERGE,fetch = FetchType.LAZY)
     @JoinColumn(name = "auditorium_id")
-    private Auditorium auditorium;*/
+    private Auditorium auditorium;
 
     @Enumerated(EnumType.ORDINAL)
     private SeatType seatType;

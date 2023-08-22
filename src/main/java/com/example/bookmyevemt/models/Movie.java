@@ -8,7 +8,6 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
-@Access(AccessType.PROPERTY)
 public class Movie extends BaseModel{
     private String name;
 
@@ -25,6 +24,9 @@ public class Movie extends BaseModel{
     @Enumerated(EnumType.ORDINAL)
     private List<Language> languages;
 
-   /* @ManyToMany
-    private List<Actor>actorList;*/
+    @ManyToMany
+    @JoinTable(name = "actor-movie",
+     joinColumns = @JoinColumn(name = "movie_id"),
+    inverseJoinColumns = @JoinColumn(name = "actor_id"))
+    private List<Actor>actorList;
 }

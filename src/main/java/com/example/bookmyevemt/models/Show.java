@@ -9,21 +9,23 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
-@Access(AccessType.PROPERTY)
 @Table(name = "Shows")
 public class Show extends  BaseModel{
 
-   /* @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "movie_id")
     private Movie movie;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "auditorium_id")
     private Auditorium auditorium;
 
     private Date startTime;
+
     private Date endTime;
 
     @ElementCollection
     @Enumerated(EnumType.ORDINAL)
-    private List<Feature>showFeatures;*/
+    private List<Feature>showFeatures;
 
 }

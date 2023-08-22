@@ -6,14 +6,13 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-@Access(AccessType.PROPERTY)
-
 public class ShowSeatType extends BaseModel {
-   /* @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "show_id")
     private Show show;
 
     @Enumerated(EnumType.ORDINAL)
-    private SeatType seatType;*/
+    private SeatType seatType;
 
     private Double price;
 }

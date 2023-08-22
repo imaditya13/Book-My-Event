@@ -10,7 +10,7 @@ import java.util.List;
 @Setter
 @Getter
 @Entity
-@Access(AccessType.PROPERTY)
+//@Access(AccessType.PROPERTY)
 
 public class Auditorium extends BaseModel{
     @Column(name = "Name")
@@ -20,13 +20,13 @@ public class Auditorium extends BaseModel{
     @Enumerated(EnumType.ORDINAL)
     private List<Feature>featureList;
 
-/*    @OneToMany(cascade = CascadeType.PERSIST,mappedBy = "auditorium")
-    private List<Seat>seatList;*/
+    @OneToMany(cascade = CascadeType.PERSIST,mappedBy = "auditorium")
+    private List<Seat>seatList;
 
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "theater_id")
-    private Theater theater;
+     private Theater theater;
 }
 
 //Audi : Seat

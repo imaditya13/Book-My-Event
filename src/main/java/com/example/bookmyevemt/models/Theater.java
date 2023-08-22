@@ -11,18 +11,18 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
-//@Access(AccessType.PROPERTY)
 public class Theater extends BaseModel{
-     String name;
-     String adress;
+    private String name;
+   private   String adress;
 
-   /* @ManyToOne
+    @ManyToOne(cascade = CascadeType.MERGE,fetch = FetchType.LAZY)
+    @JoinColumn(name = "city_id")
     private City city;
-    */
+
 
 //    @JdbcTypeCode(SqlTypes.JSON)
 //    @Column(columnDefinition="JSON")
-    @OneToMany(mappedBy = "theater")
-     List<Auditorium> auditoriumList;
+    @OneToMany(cascade = CascadeType.PERSIST,mappedBy = "theater")
+    private List<Auditorium> auditoriumList;
 
 }
