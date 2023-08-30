@@ -11,20 +11,21 @@ import java.util.List;
 public class Movie extends BaseModel{
     private String name;
 
-   @ElementCollection
+    @ElementCollection(fetch = FetchType.EAGER)
     @Enumerated(EnumType.ORDINAL)
     private List<Feature> features;
 
-    @ElementCollection
+    @ElementCollection(fetch = FetchType.EAGER)
     @Enumerated(EnumType.ORDINAL)
     private List<Genre> genres;
 
 
-    @ElementCollection
+    @ElementCollection(fetch = FetchType.EAGER)
     @Enumerated(EnumType.ORDINAL)
     private List<Language> languages;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
+    @Transient
     @JoinTable(name = "actor-movie",
      joinColumns = @JoinColumn(name = "movie_id"),
     inverseJoinColumns = @JoinColumn(name = "actor_id"))

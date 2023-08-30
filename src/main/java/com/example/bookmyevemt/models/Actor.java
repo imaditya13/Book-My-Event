@@ -9,7 +9,6 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-
 public class Actor extends BaseModel{
     @Column(name = "Name")
     private String name;

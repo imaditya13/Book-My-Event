@@ -16,15 +16,16 @@ public class Auditorium extends BaseModel{
     @Column(name = "Name")
     private String name;
 
-    @ElementCollection
+    @ElementCollection(fetch = FetchType.EAGER)
     @Enumerated(EnumType.ORDINAL)
     private List<Feature>featureList;
 
-    @OneToMany(cascade = CascadeType.PERSIST,mappedBy = "auditorium")
+    @OneToMany(cascade = CascadeType.PERSIST,mappedBy = "auditorium",fetch = FetchType.LAZY)
+    @Transient
     private List<Seat>seatList;
 
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "theater_id")
      private Theater theater;
 }

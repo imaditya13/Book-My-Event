@@ -17,7 +17,7 @@ public class Seat extends BaseModel{
     @Column(name = "seat_column")
     private Integer col;
 
-    @ManyToOne(cascade = CascadeType.MERGE,fetch = FetchType.LAZY)
+    @ManyToOne(cascade = CascadeType.MERGE,fetch = FetchType.EAGER)
     @JoinColumn(name = "auditorium_id")
     private Auditorium auditorium;
 

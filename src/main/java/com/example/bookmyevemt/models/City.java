@@ -11,7 +11,8 @@ import java.util.List;
 public class City extends BaseModel{
     private String name;
 
-    @OneToMany(cascade = CascadeType.PERSIST,mappedBy = "city")
+    @OneToMany(mappedBy = "city",fetch = FetchType.LAZY)
+    @Transient
     private List<Theater>theaterList;
 }
 /*
